@@ -4,22 +4,22 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
-public class DriverTest {
+public class MechanicTest {
 
-    private Driver driver;
+    private Mechanic mechanic;
 
     @Before
     public void setUp() {
-        driver = new Driver("Kimi Raikkonen", 16, 50, 50, 50, false);
+        mechanic = new Mechanic("Steve Matchett", 100000, 50, 50, 50);
     }
 
     @Test
     public void constructorTest_name() {
-        assertTrue(driver.getName().equals("Kimi Raikkonen"));
+        assertTrue(mechanic.getName().equals("Steve Matchett"));
     }
 
     @Test
     public void constructorTest_salary() {
-        assertTrue(driver.getSalary() == 16);
+        assertTrue(mechanic.getSalary() == 100000);
     }
 }
