@@ -1,15 +1,25 @@
 package backend;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class StrategistTest {
 
-    @Test
-    public void constructorTest() {
-        Strategist strategist = new Strategist("Anonyme", 1);
+    private Strategist strategist;
 
+    @Before
+    public void setUp() {
+        strategist = new Strategist("Anonyme", 1000000);
+    }
+
+    @Test
+    public void constructorTestname () {
         assertTrue(strategist.getName().equals("Anonyme"));
-        assertTrue(strategist.getSalary() == 1);
+    }
+
+    @Test
+    public void constructorTest_salary() {
+        assertTrue(strategist.getSalary() == 1000000);
     }
 }
