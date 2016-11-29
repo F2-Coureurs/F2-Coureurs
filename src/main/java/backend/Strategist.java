@@ -3,7 +3,7 @@ package backend;
 public class Strategist extends Staff {
 
     /**
-     *  Create a new strategist.
+     *  Create aa new strategist.
      *
      *  @param name the name of the staff member
      *  @param salary the salary per race
