@@ -7,9 +7,9 @@
 
 <?import javafx.scene.image.Image?>
 
-<?import main.java.frontend.HomeButton?>
-<?import main.java.frontend.EditTeamButton?>
-<?import main.java.frontend.PrepareRaceButton?>
+<?import frontend.HomeButton?>
+<?import frontend.EditTeamButton?>
+<?import frontend.PrepareRaceButton?>
 
 <Pane xmlns="http://javafx.com/javafx/8"
       id="standings" maxHeight="-Infinity"

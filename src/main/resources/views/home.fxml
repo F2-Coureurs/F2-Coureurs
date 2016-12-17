@@ -6,14 +6,14 @@
 <?scenebuilder-stylesheet style.css?>
 
 <?import javafx.scene.image.Image?>
-<?import main.java.frontend.ExitButton?>
-<?import main.java.frontend.PrepareRaceButton?>
-<?import main.java.frontend.ChampionshipStandingsButton?>
-<?import main.java.frontend.EditTeamButton?>
+<?import frontend.ExitButton?>
+<?import frontend.PrepareRaceButton?>
+<?import frontend.ChampionshipStandingsButton?>
+<?import frontend.EditTeamButton?>
 
 
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      id="home" fx:controller="main.java.frontend.controllers.HomeController" maxHeight="-Infinity"
+      id="home" fx:controller="frontend.controllers.HomeController" maxHeight="-Infinity"
       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0"
       prefWidth="1920.0" styleClass="pane" stylesheets="@style.css">
 
@@ -28,7 +28,7 @@
 
        <!-- Team block-->
        <Pane layoutX="80" layoutY="125" prefHeight="645" prefWidth="530" styleClass="block">
-              <Label layoutX="30" layoutY="40" styleClass="title" text="Your team"/>
+              <Label layoutX="30" layoutY="40" fx:id="teamName" styleClass="title" text="Your team"/>
               <ImageView  fitWidth="100" fitHeight="100" layoutX="400" layoutY="25">
                     <Image url="@../media/icons/team.png" />
               </ImageView>
@@ -36,38 +36,38 @@
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="150">
                       <Image url="@../media/icons/engine.png"/>
               </ImageView>
-              <Label id="engine" layoutX="150" layoutY="160" styleClass="content" text="Engine"/>
+              <Label fx:id="engineName" layoutX="150" layoutY="160" styleClass="content" text="Engine"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="225">
                       <Image url="@../media/icons/driver1.png"/>
               </ImageView>
-              <Label id="firstDriver" layoutX="150" layoutY="235" styleClass="content" text="First driver"/>
+              <Label fx:id="firstDriverName" layoutX="150" layoutY="235" styleClass="content" text="First driver"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="300">
                       <Image url="@../media/icons/driver2.png"/>
               </ImageView>
-              <Label id="secondDriver" layoutX="150" layoutY="310" styleClass="content" text="Second driver"/>
+              <Label fx:id="secondDriverName" layoutX="150" layoutY="310" styleClass="content" text="Second driver"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="375">
                       <Image url="@../media/icons/strategist.png"/>
               </ImageView>
-              <Label id="strategist" layoutX="150" layoutY="385" styleClass="content" text="Strategist"/>
+              <Label fx:id="strategistName" layoutX="150" layoutY="385" styleClass="content" text="Strategist"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="450">
                       <Image url="@../media/icons/aero.png"/>
               </ImageView>
-              <Label id="aerodynamicist" layoutX="150" layoutY="460" styleClass="content" text="Aerodynamicist"/>
+              <Label fx:id="aerodynamicistName" layoutX="150" layoutY="460" styleClass="content" text="Aerodynamicist"/>
 
               <ImageView fitHeight="75" fitWidth="75" layoutX="30" layoutY="525">
                       <Image url="@../media/icons/mechanic.png"/>
               </ImageView>
-              <Label id="mechanic" layoutX="150" layoutY="535" styleClass="content" text="Mechanic"/>
+              <Label fx:id="mechanicName" layoutX="150" layoutY="535" styleClass="content" text="Mechanic"/>
        </Pane>
 
         <!-- Circuit -->
         <Pane layoutX="700" layoutY="125" prefHeight="220" prefWidth="530" styleClass="block">
             <Label layoutX="30" layoutY="40" styleClass="title" text="Circuit"/>
-            <Label layoutX="30" id="nextCircuit" layoutY="120" styleClass="content" text="Bahrain"/>
+            <Label layoutX="30" fx:id="nextCircuit" layoutY="120" styleClass="content" />
             <ImageView fitHeight="100" fitWidth="100" layoutX="375" layoutY="40" rotate="130">
                 <Image url="@../media/icons/circuit.png"/>
             </ImageView>
@@ -76,7 +76,7 @@
         <!-- Budget -->
         <Pane layoutX="700" layoutY="370" prefHeight="220" prefWidth="530" styleClass="block">
             <Label layoutX="30" layoutY="40" styleClass="title" text="Budget"/>
-            <Label layoutX="30" id="currentBudget" layoutY="120" styleClass="content" text="€ 200,000,000"/>
+            <Label layoutX="30" fx:id="currentBudget" layoutY="120" styleClass="content" />
             <ImageView fitHeight="75" fitWidth="75" layoutX="375" layoutY="40">
                 <Image url="@../media/icons/eurosign.png"/>
             </ImageView>

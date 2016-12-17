@@ -1,6 +1,7 @@
 package frontend.controllers;
 
 import backend.Driver;
+import backend.GameEngine;
 import backend.Season;
 import backend.Team;
 import javafx.event.ActionEvent;
@@ -23,6 +24,13 @@ public class RaceController {
     @FXML
     private Label winningDriverLabel;
 
+    private Season season;
+
+    @FXML
+    public void initialize() {
+        season = GameEngine.getInstance().getSeason();
+    }
+
     /**
      * Start the race.
      *
@@ -39,9 +47,8 @@ public class RaceController {
         int random = new Random().nextInt(season.getTeams().size());
         Team winningTeam = season.getTeams().get(random);
 
-        // Select random driver from the winning team
-        int random2 = new Random().nextInt(1);
-        Driver winningDriver = winningTeam.getDrivers().get(random2);
+        // Select first driver from the winning team
+        Driver winningDriver = winningTeam.getSecondDriver();
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/race-result.fxml"));
         Stage stage = (Stage)startRace.getScene().getWindow();

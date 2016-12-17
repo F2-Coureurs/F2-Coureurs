@@ -1,7 +1,9 @@
 package backend;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Team {
     private String name;
@@ -87,6 +89,16 @@ public class Team {
      */
     public int getBudget() {
         return budget;
+    }
+
+    /**
+     * Gets a string representation of the budget.
+     *
+     * @return string of the budget
+     */
+    public String getBudgetString() {
+        NumberFormat euroFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return euroFormat.format(budget);
     }
 
     /**
@@ -258,26 +270,59 @@ public class Team {
     }
 
     /**
-     * Aad a driver to the list.
+     * Sets the first Driver.
      *
-     * @param driver the driver to compare with
-     * @throws IllegalArgumentException if list contains driver
+     * @param driver the new Driver
      */
-    public void addDriver(Driver driver) {
-        if (drivers.contains(driver)) {
-            throw new IllegalArgumentException("This driver is already in the list");
-        } else {
+    public void setFirstDriver(Driver driver) {
+        if (drivers.size() == 0) {
             drivers.add(driver);
+        } else {
+            drivers.set(0, driver);
         }
     }
 
     /**
-     * Get the list of drivers.
+     * Sets the second Driver.
      *
-     * @return the list of drivers
+     * @param driver the new Driver
      */
-    public List<Driver> getDrivers() {
-        return drivers;
+    public void setSecondDriver(Driver driver) {
+        if (drivers.size() <= 1) {
+            drivers.add(driver);
+        } else {
+            drivers.set(1, driver);
+        }
+    }
+
+    /**
+     * Get the first driver.
+     *
+     * @return the first driver
+     */
+    public Driver getFirstDriver() {
+        return drivers.get(0);
+    }
+
+    /**
+     * Get the second driver.
+     *
+     * @return the second driver
+     */
+    public Driver getSecondDriver() {
+        return drivers.get(1);
+    }
+
+    private boolean driversEquals(Team that) {
+        if (this.drivers.size() != that.drivers.size()) {
+            return false;
+        }
+        for (Driver driver : this.drivers) {
+            if (!that.drivers.contains(driver)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -302,10 +347,9 @@ public class Team {
             boolean boAerodynamicist = getAerodynamicist().equals(team.getAerodynamicist());
             boolean boMechanic = getMechanic().equals(team.getMechanic());
             boolean boStrategist = getStrategist().equals(team.getStrategist());
-            boolean boDrivers = getDrivers().equals(team.getDrivers());
             return boPointAll && boPointThis && boPointAll && boWinAll && boWinThis
                     && boBudget && boName && boManager && boEngine && boAerodynamicist
-                    && boMechanic && boStrategist && boDrivers;
+                    && boMechanic && boStrategist && driversEquals(team);
         }
         return false;
     }

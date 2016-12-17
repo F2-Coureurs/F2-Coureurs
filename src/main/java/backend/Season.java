@@ -83,6 +83,15 @@ public class Season {
     }
 
     /**
+     * Gets the team that the player controls.
+     *
+     * @return one of the teams
+     */
+    public Team getPlayerControlledTeam() {
+        return this.teams.get(0);
+    }
+
+    /**
      * Adds a race to the rounds.
      *
      * @param race the race to add

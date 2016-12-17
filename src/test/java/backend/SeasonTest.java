@@ -41,8 +41,8 @@ public class SeasonTest {
         engine = new Engine(900, 70, 80, "Mercedes");
         team = new Team("F2", "User", 2500000,
                 engine, aerodynamicist, mechanic, strategist);
-        team.addDriver(driver);
-        team.addDriver(driver2);
+        team.setFirstDriver(driver);
+        team.setSecondDriver(driver2);
 
         this.simpleSeason = new Season();
         this.season = new Season();
@@ -116,6 +116,10 @@ public class SeasonTest {
         assertEquals(new ArrayList<Strategist>(), season.getContractStrategists());
     }
 
+    @Test
+    public void getPlayerControlledTeamTest() {
+        assertEquals(team, season.getPlayerControlledTeam());
+    }
     @Test
     public void equalsSame() {
         assertEquals(season, sameSeason);

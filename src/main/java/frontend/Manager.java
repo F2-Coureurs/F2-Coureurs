@@ -38,7 +38,7 @@ public class Manager extends Application {
                     e.printStackTrace();
                 }
             }
-        }, 3000);
+        }, 1000);
     }
 
     public static void main(String[] args) {
