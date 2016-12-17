@@ -1,6 +1,6 @@
 package backend;
 
-public class Driver extends Staff {
+public class Driver extends Staff implements Comparable<Driver> {
     private int speed;
     private int raceCraft;
     private int strategyInsight;
@@ -51,6 +51,15 @@ public class Driver extends Staff {
     }
 
     /**
+     * Get the total amount of points.
+     *
+     * @return the points of the driver
+     */
+    public int getPoints() {
+        return points;
+    }
+
+    /**
      * Finds the quality of the driver by combining all its attributes.
      *
      * @return the quality of the driver, an int between 0 and 100
@@ -82,5 +91,18 @@ public class Driver extends Staff {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Sort drivers by its points.
+     *
+     * @param other the driver to compare with
+     * @return the ascending order
+     */
+    @Override
+    public int compareTo(Driver other) {
+        int comparePoints = other.getPoints();
+
+        return comparePoints - this.points;
     }
 }

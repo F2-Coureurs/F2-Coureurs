@@ -77,6 +77,16 @@ public class SeasonTest {
     }
 
     @Test
+    public void getTeamTest() {
+        Team team2 = new Team("F2", "User", 2500000,
+                engine, aerodynamicist, mechanic, strategist);
+        team2.setPointsThisSeason(1);
+        this.season.addTeam(team2);
+
+        assertEquals(team2, this.season.getTeam(1));
+    }
+
+    @Test
     public void getCurrentRoundException() {
         Season exceptSeason = new Season();
         exceptSeason.addRace(race);
