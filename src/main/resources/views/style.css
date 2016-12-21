@@ -79,7 +79,7 @@ Button#red {
     -fx-background-position: center center;
 }
 
-#home, #current-staff{
+#home {
     -fx-background-image: url("../media/backgrounds/home.jpg");
 }
 
@@ -123,7 +123,7 @@ Button#red {
 }
 
 .leftside {
-    -fx-padding: 0 250px 0 0;
+    -fx-alignment: center-left;
     -fx-font-size: 58;
     -fx-pref-width: 530;
     -fx-pref-height: 200;
