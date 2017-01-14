@@ -1,6 +1,4 @@
-package frontend;
-
-import backend.Season;
+package backend;
 
 import java.io.FileNotFoundException;
 
@@ -64,7 +62,12 @@ public enum GameEngine {
         private final String saveName;
         private Season season;
 
-        GameEngineBuilder(String saveName) {
+        /**
+         * Constructor. saveName is the filename in saves.
+         * A new save will be made if the name does not exist.
+         * @param saveName name of the save
+         */
+        public GameEngineBuilder(String saveName) {
             this.saveName = saveName;
             try {
                 season = Season.load(saveName);
@@ -74,6 +77,9 @@ public enum GameEngine {
             }
         }
 
+        /**
+         * Build the GameEngine. Call this after instantiating the class.
+         */
         public void build() {
             GameEngine.INSTANCE.build(this);
         }

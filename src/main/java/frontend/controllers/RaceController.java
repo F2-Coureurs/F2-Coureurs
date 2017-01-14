@@ -1,12 +1,12 @@
 package frontend.controllers;
 
 import backend.Driver;
+import backend.GameEngine;
 import backend.Race;
 import backend.Season;
 import backend.Setup;
 import backend.Strategy;
 import backend.Team;
-import frontend.GameEngine;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

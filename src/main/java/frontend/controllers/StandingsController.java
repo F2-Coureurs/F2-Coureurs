@@ -1,7 +1,7 @@
 package frontend.controllers;
 
+import backend.GameEngine;
 import backend.Season;
-import frontend.GameEngine;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
