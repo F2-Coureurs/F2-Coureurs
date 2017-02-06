@@ -346,33 +346,53 @@ public class Season {
         // add a new contract worker to the team
         if (staffMember instanceof Aerodynamicist) {
             if (!replaceWithNull) {
-                oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
+                if (contractAerodynamicists.size() != 0) {
+                    oldTeam.swapStaffMember(contractAerodynamicists.remove(0));
+                } else {
+                    oldTeam.swapStaffMember(new Aerodynamicist());
+                }
             } else {
                 oldTeam.swapStaffMember(new Aerodynamicist());
             }
         } else if (staffMember instanceof Driver) {
             if (((Driver) staffMember).isSecondDriver(this)) {
                 if (!replaceWithNull) {
-                    oldTeam.swapSecondDriver(contractDrivers.remove(0));
+                    if (contractDrivers.size() != 0) {
+                        oldTeam.swapSecondDriver(contractDrivers.remove(0));
+                    } else {
+                        oldTeam.swapSecondDriver(new Driver());
+                    }
                 } else {
                     oldTeam.swapSecondDriver(new Driver());
                 }
             } else {
                 if (!replaceWithNull) {
-                    oldTeam.swapStaffMember(contractDrivers.remove(0));
+                    if (contractDrivers.size() != 0) {
+                        oldTeam.swapSecondDriver(contractDrivers.remove(0));
+                    } else {
+                        oldTeam.swapSecondDriver(new Driver());
+                    }
                 } else {
                     oldTeam.swapStaffMember(new Driver());
                 }
             }
         } else if (staffMember instanceof Mechanic) {
             if (!replaceWithNull) {
-                oldTeam.swapStaffMember(contractMechanics.remove(0));
+                if (contractMechanics.size() != 0) {
+                    oldTeam.swapStaffMember(contractMechanics.remove(0));
+                } else {
+                    oldTeam.swapStaffMember(new Mechanic());
+                }
             } else {
                 oldTeam.swapStaffMember(new Mechanic());
             }
         } else {
             if (!replaceWithNull) {
-                oldTeam.swapStaffMember(contractStrategists.remove(0));
+                if (contractStrategists.size() != 0) {
+                    oldTeam.swapStaffMember(contractStrategists.remove(0));
+                } else {
+                    oldTeam.swapStaffMember(new Strategist());
+                }
             } else {
                 oldTeam.swapStaffMember(new Strategist());
             }
